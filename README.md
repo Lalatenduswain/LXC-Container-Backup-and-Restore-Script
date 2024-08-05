@@ -99,7 +99,7 @@ To restore a container from the backup created by `backup_lxc.sh`, follow these 
 To clone this repository, use the following command:
 
 ```bash
-git clone https://github.com/Lalatenduswain/list_domains_master.git
+git clone https://github.com/Lalatenduswain/LXC-Container-Backup-and-Restore-Script.git
 ```
 
 ### Running the Backup Script
