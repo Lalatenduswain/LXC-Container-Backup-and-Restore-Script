@@ -35,7 +35,7 @@ The `backup_lxc.sh` script is used to create a backup of an LXC container with t
 #!/bin/bash
 
 # Configuration
-CONTAINER_ID=131
+CONTAINER_ID=Your-Container-ID-Here
 STORAGE="local"
 BACKUP_DIR="/var/lib/vz/dump"
 LOG_FILE="/var/log/vzdump_${CONTAINER_ID}_$(date +'%Y_%m_%d_%H_%M_%S').log"
@@ -69,27 +69,27 @@ find $BACKUP_DIR -name "vzdump-lxc-${CONTAINER_ID}-*.tar.zst" -type f -mtime +7 
 To restore a container from the backup created by `backup_lxc.sh`, follow these steps:
 
 1. **Locate the Backup File**:
-   Ensure that the backup file (e.g., `vzdump-lxc-131-2024_08_05-15_55_25.tar.zst`) is in the `/var/lib/vz/dump` directory or another appropriate location.
+   Ensure that the backup file (e.g., `vzdump-lxc-Your-Container-ID-Here-2024_08_05-15_55_25.tar.zst`) is in the `/var/lib/vz/dump` directory or another appropriate location.
 
 2. **Restore the Container**:
    Use the `pct restore` command to restore the container from the backup file. Specify the storage to use for the container.
 
    ```bash
-   pct restore 131 /var/lib/vz/dump/vzdump-lxc-131-2024_08_05-15_55_25.tar.zst --storage local-lvm
+   pct restore Your-Container-ID-Here /var/lib/vz/dump/vzdump-lxc-Your-Container-ID-Here-2024_08_05-15_55_25.tar.zst --storage local-lvm
    ```
 
 3. **Start the Restored Container**:
    Once the container is restored, start it using the following command:
 
    ```bash
-   pct start 131
+   pct start Your-Container-ID-Here
    ```
 
 4. **Verify the Container Status**:
    Check the status of the restored container to ensure it is running correctly.
 
    ```bash
-   pct status 131
+   pct status Your-Container-ID-Here
    ```
 
 ## Usage
